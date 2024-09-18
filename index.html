@@ -3,50 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smiki Shoes Management System</title>
+    <title>Smiki Shoes - Product Management</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+
 </head>
 <body>
-    <h1>Smiki Shoes Management System</h1>
-    
-    <button id="openFormButton">Внеси продукт</button>
-    
+    <div class="container">
+        <h1>Smiki Shoes - Product Management</h1>
 
-<!-- Modal for the form -->
-<div id="modal" class="modal hidden">
-    <div class="modal-content">
-        <span id="closeModal" class="close">&times;</span>
-        <h2 id="formTitle">Внеси нов продукт</h2>
-        <form id="productForm">
-            <input type="hidden" id="editIndex">
-            <label for="title">Име на продуктот:</label>
-            <input type="text" id="title" name="title" required>
-            
-            <label for="quantity">Количина:</label>
-            <input type="number" id="quantity" name="quantity" required>
-            
-            <label for="price">Цена:</label>
-            <input type="number" id="price" name="price" step="0.01" required>
-            
-            <label for="image">Внеси слика:</label>
-            <input type="file" id="imageInput" name="image" accept="image/*">
-            
-            <button type="submit">Внеси и зачувај</button>
-            <button type="button" id="removeButton" class="remove-button">
-                <i class="fa fa-trash"></i> Избриши од листа
-            </button>
-        </form>
-    </div>
-</div>
+        <button id="openFormButton">Add New Product</button>
 
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2 id="formTitle">Add New Product</h2>
+                <form id="productForm">
+                    <label for="title">Product Title</label>
+                    <input type="text" id="title" name="title" required>
 
-    
-    <div id="productList">
-        <h2>ЛИСТА НА ПРОДУКТИ</h2>
-        <!-- Product items will be displayed here -->
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" required>
+
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" required>
+
+                    <label for="imageInput">Product Image</label>
+                    <input type="file" id="imageInput" accept="image/*">
+
+                    <input type="hidden" id="editIndex" name="editIndex">
+                    <button type="submit" id="saveProduct">Save Product</button>
+                    <button type="button" id="removeButton" style="display:none;">Remove Product</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="productList" class="product-list"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

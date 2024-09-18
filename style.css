@@ -214,9 +214,16 @@ button#captureButton {
     .edit-button {
         margin-right: 50px; /* Adjust margin to move the button to the left */
     }
+
+    /* Add Product Button between Title and Product List on Mobile */
+    #openFormButton {
+        position: static;
+        margin: 10px auto 20px;
+        display: block;
+    }
 }
 
-/* Button Styles */
+/* Desktop Button Styles */
 #openFormButton {
     position: absolute;
     right: 20px;
@@ -249,28 +256,4 @@ button#captureButton {
 #removeButton:hover {
     background-color: #cc0000; /* Darker red on hover */
     transition: 1.3s ease all;
-}
-
-
-/* Add this to your existing media query for mobile screens */
-@media (max-width: 768px) {
-    #openFormButton {
-        position: relative; /* Change to relative so it's within the product list flow */
-        margin: 10px 0;
-        display: inline-block;
-        float: right; /* Align to the right of the product list */
-    }
-
-    /* Adjust the product list container to fit the button */
-    #productList {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center; /* Align the items vertically */
-    }
-
-    /* Ensure the product list items and the button align */
-    .product-item {
-        width: 80%; /* Adjust the width to make space for the button */
-    }
 }
