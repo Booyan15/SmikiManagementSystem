@@ -83,7 +83,7 @@ function updateProduct(index, title, quantity, price, image) {
         <div class="details">
             <span><strong>Продукт:</strong> ${title}</span>
             <span><strong>Бројки:</strong> ${quantity}</span>
-            <span><strong>Цена:</strong> денари${price}</span>
+            <span><strong>Цена:</strong> ${price} денари</span>
         </div>
         <button class="edit-button" data-index="${index}">Edit</button>
     `;
