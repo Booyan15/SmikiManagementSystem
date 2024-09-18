@@ -61,6 +61,7 @@ function addProduct(title, quantity, price, image) {
         <button class="edit-button" data-index="${index}">Измени</button>
     `;
 
+    // Append new product to the list without page reload
     productList.appendChild(productItem);
 }
 
@@ -98,6 +99,7 @@ function removeProduct(index) {
     });
 }
 
+// Edit button click event
 document.addEventListener('click', function(event) {
     if (event.target.classList.contains('edit-button')) {
         const index = event.target.getAttribute('data-index');
