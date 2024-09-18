@@ -62,7 +62,7 @@ function addProduct(title, quantity, price, image) {
         <div class="details">
             <span><strong>Назив на продукт:</strong> ${title}</span>
             <span><strong>Бројки:</strong> ${quantity}</span>
-            <span><strong>Цена:</strong> $${price}</span>
+            <span><strong>Цена:</strong> ${price}</span>
         </div>
         <button class="edit-button" data-index="${index}">Измени</button>
     `;
