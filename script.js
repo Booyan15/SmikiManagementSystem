@@ -1,5 +1,11 @@
 let products = []; // Array to store product data
 
+// Load products from localStorage when the page loads
+window.addEventListener('load', function() {
+    products = loadProductsFromLocalStorage();
+    displayProducts();
+});
+
 document.getElementById('openFormButton').addEventListener('click', function() {
     document.getElementById('modal').classList.add('show');
     document.getElementById('formTitle').textContent = 'Внеси нов продукт';
@@ -62,6 +68,8 @@ function addProduct(title, quantity, price, image) {
     `;
 
     productList.appendChild(productItem);
+
+    saveProductsToLocalStorage(); // Save products to local storage
 }
 
 function updateProduct(index, title, quantity, price, image) {
@@ -79,6 +87,8 @@ function updateProduct(index, title, quantity, price, image) {
         </div>
         <button class="edit-button" data-index="${index}">Edit</button>
     `;
+
+    saveProductsToLocalStorage(); // Save products to local storage
 }
 
 function removeProduct(index) {
@@ -96,20 +106,35 @@ function removeProduct(index) {
     document.querySelectorAll('.edit-button').forEach((button, i) => {
         button.setAttribute('data-index', i);
     });
+
+    saveProductsToLocalStorage(); // Save products to local storage
 }
 
-document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('edit-button')) {
-        const index = event.target.getAttribute('data-index');
-        const product = products[index];
+function saveProductsToLocalStorage() {
+    localStorage.setItem('products', JSON.stringify(products));
+}
 
-        document.getElementById('title').value = product.title;
-        document.getElementById('quantity').value = product.quantity;
-        document.getElementById('price').value = product.price;
-        document.getElementById('editIndex').value = index;
+function loadProductsFromLocalStorage() {
+    const storedProducts = localStorage.getItem('products');
+    return storedProducts ? JSON.parse(storedProducts) : [];
+}
+
+function displayProducts() {
+    const productList = document.getElementById('productList');
+    products.forEach((product, index) => {
+        const productItem = document.createElement('div');
+        productItem.className = 'product-item';
         
-        document.getElementById('modal').classList.add('show');
-        document.getElementById('formTitle').textContent = 'Edit Product';
-        document.getElementById('removeButton').style.display = 'block'; // Show remove button when editing
-    }
-});
+        productItem.innerHTML = `
+            <img src="${product.image}" alt="${product.title}">
+            <div class="details">
+                <span><strong>Назив на продукт:</strong> ${product.title}</span>
+                <span><strong>Бројки:</strong> ${product.quantity}</span>
+                <span><strong>Цена:</strong> $${product.price}</span>
+            </div>
+            <button class="edit-button" data-index="${index}">Измени</button>
+        `;
+
+        productList.appendChild(productItem);
+    });
+}
