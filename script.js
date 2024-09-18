@@ -1,7 +1,7 @@
 let products = []; // Array to store product data
 
-// Load products from localStorage when the page loads
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Load products from local storage
     products = loadProductsFromLocalStorage();
     displayProducts();
 });
@@ -110,21 +110,14 @@ function removeProduct(index) {
     saveProductsToLocalStorage(); // Save products to local storage
 }
 
-function saveProductsToLocalStorage() {
-    localStorage.setItem('products', JSON.stringify(products));
-}
-
-function loadProductsFromLocalStorage() {
-    const storedProducts = localStorage.getItem('products');
-    return storedProducts ? JSON.parse(storedProducts) : [];
-}
-
 function displayProducts() {
     const productList = document.getElementById('productList');
+    productList.innerHTML = ''; // Clear existing products
+
     products.forEach((product, index) => {
         const productItem = document.createElement('div');
         productItem.className = 'product-item';
-        
+
         productItem.innerHTML = `
             <img src="${product.image}" alt="${product.title}">
             <div class="details">
@@ -137,4 +130,13 @@ function displayProducts() {
 
         productList.appendChild(productItem);
     });
+}
+
+function saveProductsToLocalStorage() {
+    localStorage.setItem('products', JSON.stringify(products));
+}
+
+function loadProductsFromLocalStorage() {
+    const storedProducts = localStorage.getItem('products');
+    return storedProducts ? JSON.parse(storedProducts) : [];
 }
