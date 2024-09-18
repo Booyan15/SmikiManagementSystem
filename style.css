@@ -1,0 +1,252 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e4e4e4;
+    color: #000000;
+    transition: 1.3s ease all;
+}
+
+/* Modal Styles */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"], input[type="file"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+button[type="button"], button[type="submit"] {
+    padding: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+button[type="button"]:hover, button[type="submit"]:hover {
+    background-color: #161616;
+}
+
+/* Camera Styles */
+#cameraContainer {
+    margin-top: 20px;
+    position: relative;
+}
+
+#video {
+    width: 100%;
+    height: auto;
+}
+
+#canvas {
+    display: none;
+}
+
+#photo {
+    display: none;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+button#captureButton {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Ensure the product list spans the full width of the viewport */
+#productList {
+    margin: 20px auto;
+    padding: 0;
+    max-width: 1200px; /* Optional: Adjust based on your layout */
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9; /* Lighter color for odd rows */
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-item:nth-child(even) {
+    background-color: #e0e0e0; /* Darker color for even rows */
+}
+
+.product-item:hover {
+    background-color: #f1f1f1; /* Hover effect */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.product-item img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.product-item .details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Ensure labels and info align correctly */
+.product-item .details span {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.product-item .details span strong {
+    font-weight: 600;
+    color: #333;
+    width: 100px; /* Adjust width for alignment */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-item {
+        flex-direction: row; /* Ensure items align horizontally on mobile */
+    }
+
+    .product-item img {
+        margin-right: 20px;
+    }
+
+    .product-item .details {
+        flex-direction: column; /* Stack details vertically on smaller screens */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .product-item .details span {
+        align-items: center;
+        justify-content: flex-start; /* Align text to the start of the container */
+    }
+
+    .edit-button {
+        margin-right: 50px; /* Adjust margin to move the button to the left */
+    }
+}
+
+/* Button Styles */
+#openFormButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#openFormButton:hover {
+    background-color: #161616;
+    transition: 1.3s ease all;
+}
+
+/* Remove Button Styles */
+#removeButton {
+    padding: 10px;
+    background-color: #ff4d4d; /* Red color for remove button */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+#removeButton:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transition: 1.3s ease all;
+}
