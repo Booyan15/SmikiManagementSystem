@@ -138,3 +138,19 @@ function displayProducts() {
         productList.appendChild(productItem);
     });
 }
+
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('edit-button')) {
+        const index = event.target.getAttribute('data-index');
+        const product = products[index];
+
+        document.getElementById('title').value = product.title;
+        document.getElementById('quantity').value = product.quantity;
+        document.getElementById('price').value = product.price;
+        document.getElementById('editIndex').value = index;
+        
+        document.getElementById('modal').classList.add('show');
+        document.getElementById('formTitle').textContent = 'Edit Product';
+        document.getElementById('removeButton').style.display = 'block'; // Show remove button when editing
+    }
+});
