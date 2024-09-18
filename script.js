@@ -110,17 +110,10 @@ function removeProduct(index) {
     saveProductsToLocalStorage(); // Save products to local storage
 }
 
-function saveProductsToLocalStorage() {
-    localStorage.setItem('products', JSON.stringify(products));
-}
-
-function loadProductsFromLocalStorage() {
-    const storedProducts = localStorage.getItem('products');
-    return storedProducts ? JSON.parse(storedProducts) : [];
-}
-
 function displayProducts() {
     const productList = document.getElementById('productList');
+    productList.innerHTML = ''; // Clear existing products
+
     products.forEach((product, index) => {
         const productItem = document.createElement('div');
         productItem.className = 'product-item';
@@ -137,4 +130,13 @@ function displayProducts() {
 
         productList.appendChild(productItem);
     });
+}
+
+function saveProductsToLocalStorage() {
+    localStorage.setItem('products', JSON.stringify(products));
+}
+
+function loadProductsFromLocalStorage() {
+    const storedProducts = localStorage.getItem('products');
+    return storedProducts ? JSON.parse(storedProducts) : [];
 }
