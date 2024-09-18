@@ -73,9 +73,9 @@ function updateProduct(index, title, quantity, price, image) {
     productItem.innerHTML = `
         <img src="${image}" alt="${title}">
         <div class="details">
-            <span><strong>Title:</strong> ${title}</span>
-            <span><strong>Quantity:</strong> ${quantity}</span>
-            <span><strong>Price:</strong> $${price}</span>
+            <span><strong>Продукт:</strong> ${title}</span>
+            <span><strong>Бројки:</strong> ${quantity}</span>
+            <span><strong>Цена:</strong> денари${price}</span>
         </div>
         <button class="edit-button" data-index="${index}">Edit</button>
     `;
