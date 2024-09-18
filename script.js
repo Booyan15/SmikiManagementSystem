@@ -54,9 +54,9 @@ function addProduct(title, quantity, price, image) {
     productItem.innerHTML = `
         <img src="${image}" alt="${title}">
         <div class="details">
-            <span><strong>Title:</strong> ${title}</span>
-            <span><strong>Quantity:</strong> ${quantity}</span>
-            <span><strong>Price:</strong> $${price}</span>
+            <span><strong>Назив на продукт:</strong> ${title}</span>
+            <span><strong>Бројки:</strong> ${quantity}</span>
+            <span><strong>Цена:</strong> $${price}</span>
         </div>
         <button class="edit-button" data-index="${index}">Измени</button>
     `;
