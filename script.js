@@ -130,7 +130,7 @@ function displayProducts() {
             <div class="details">
                 <span><strong>Назив на продукт:</strong> ${product.title}</span>
                 <span><strong>Бројки:</strong> ${product.quantity}</span>
-                <span><strong>Цена:</strong> денари${product.price}</span>
+                <span><strong>Цена:</strong> ${product.price} денари</span>
             </div>
             <button class="edit-button" data-index="${index}">Измени</button>
         `;
